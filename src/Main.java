@@ -250,7 +250,7 @@ public class Main {
     public static void main(String[] args) {
         CarRentalSystem rentalSystem = new CarRentalSystem();
 
-        Car car1 = new Car("C001", "Toyota", "Canry", 60.0, 5);
+        Car car1 = new Car("C001", "Toyota", "Camry", 60.0, 5);
         Car car2 = new Car("C002", "Honda", "Accord", 70.0, 4);
         Car car3 = new Car("C003", "Mahindra", "Thar", 130.0, 8);
         rentalSystem.addCar(car1);
