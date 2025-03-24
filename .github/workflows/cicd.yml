@@ -61,11 +61,14 @@ jobs:
       - name: Unit Test Cases
         run: mvn clean test
 
-  sonarqube_scan:
+  build_and_sonar_scan:
     runs-on: self-hosted
     needs: test
 
     steps:
+      - name: Build the Project
+        run: mvn package
+
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
@@ -93,11 +96,3 @@ jobs:
       # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
       - name: "Example show SonarQube Quality Gate Status value"
         run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
-
-  build:
-    runs-on: self-hosted
-    needs: sonarqube_scan
-
-    steps:
-      - name: Build the Project
-        run: mvn package
