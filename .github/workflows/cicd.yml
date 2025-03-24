@@ -47,6 +47,7 @@ jobs:
 
   test:
     runs-on: self-hosted
+    needs: security-checks
 
     steps:
       - name: Checkout Repository
