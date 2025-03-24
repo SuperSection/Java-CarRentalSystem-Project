@@ -112,6 +112,18 @@ class CarRentalSystem {
         rentals = new ArrayList<>();
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
     public void addCar(Car car) {
         cars.add(car);
     }
