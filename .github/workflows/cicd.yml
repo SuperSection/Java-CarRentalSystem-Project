@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Build the Project
-        run: mvn package
+        run: mvn clean package
 
       - name: Checkout Repository
         uses: actions/checkout@v4
