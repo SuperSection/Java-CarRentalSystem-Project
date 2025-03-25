@@ -6,6 +6,7 @@ on:
 
 jobs:
   compile:
+    name: "Compile"
     runs-on: self-hosted
 
     steps:
@@ -21,6 +22,8 @@ jobs:
         run: mvn clean compile
 
   security-checks:
+    name: "Security Checks"
+
     runs-on: self-hosted
     needs: compile
 
@@ -46,6 +49,8 @@ jobs:
         run: gitleaks detect source . -r gitleaks-report.json -f json
 
   test:
+    name: "Unit Testing"
+
     runs-on: self-hosted
     needs: security-checks
 
@@ -62,6 +67,8 @@ jobs:
         run: mvn clean test
 
   build_and_sonar_scan:
+    name: "Build Project & Sonarqube Scan"
+
     runs-on: self-hosted
     needs: test
 
@@ -104,6 +111,8 @@ jobs:
         run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
 
   build_docker_image_and_push:
+    name: "Build & Push Docker Image"
+
     runs-on: self-hosted
     needs: build_and_sonar_scan
 
