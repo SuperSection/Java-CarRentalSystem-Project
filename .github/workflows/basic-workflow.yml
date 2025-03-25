@@ -1,0 +1,51 @@
+# This a basic workflow that is manually triggered
+
+# Display name of workflow
+name: Basic Workflow
+
+# Controls when the action will run.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: "Person to greet"
+        # Default value if no value is explicitly provided
+        default: "World"
+        # Input jas to be provided for the workflow to run
+        required: true
+        # Input type (string, choice, boolean)
+        type: string
+      sport:
+        description: "Favorite sport"
+        required: true
+        default: "Cricket"
+        type: choice
+        options:
+          - Football
+          - Volleyball
+          - Cricket
+      fav-color-red:
+        description: "Is your favorite colour red?"
+        required: true
+        type: boolean
+
+# A workflow run is made up of one or more jobs that run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # Display name for the job
+    name: "Greetings, Program!"
+
+    # The type of runner thatthe job will run on, in this case a Github-hosted Linux runner
+    runs-on:
+      - ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Send greeting
+        run: |
+          echo "Hello ${{ github.event.inputs.name }}"
+          echo "Your favorite sport is ${{ github.event.inputs.sports }}"
+          echo "Is your favorite colour red: ${{ github.event.inputs.fav-color-red }}"
