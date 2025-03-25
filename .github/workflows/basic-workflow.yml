@@ -47,5 +47,5 @@ jobs:
       - name: Send greeting
         run: |
           echo "Hello ${{ github.event.inputs.name }}"
-          echo "Your favorite sport is ${{ github.event.inputs.sports }}"
+          echo "Your favorite sport is ${{ github.event.inputs.sport }}"
           echo "Is your favorite colour red: ${{ github.event.inputs.fav-color-red }}"
