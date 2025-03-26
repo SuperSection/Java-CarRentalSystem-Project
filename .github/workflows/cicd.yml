@@ -175,7 +175,7 @@ jobs:
       - name: Configure kube config
         run: |
           mkdir -p $HOME/.kube
-          echo "${{ secrets.EKS_KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+          echo "${{ secrets.EKS_KUBECONFIG }}" > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
 
