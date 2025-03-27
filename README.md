@@ -91,19 +91,19 @@ sudo apt install -y docker.io git unzip curl wget
     docker ps
     ```
 
-    - Expose port 9000 and access SonarQube on http://instance-public-ip:9000
+    - Expose port 9000 and access SonarQube on `http://<instance-public-ip>:9000`
 
 4. Open SonarQube on browser and use the following:
     - User: admin
     - Password: admin
 
-5. Create Access Token in SonarQube
+5. Create an Access Token in SonarQube
     - Now go to `Administration > Security > Users`
     - In Administator (admin) > go to Token
     - Provide a token name and Generate
-    - Copy the Token and Put it as a Repository Secret (`SONAR_TOKEN`) for GitHub Actions
+    - Copy the Token and Put it as a **Repository Secret** (`SONAR_TOKEN`) for GitHub Actions
 
-6. Set `SONAR_HOST_URL` as a **Repository Variable**: http://instance-public-ip:9000
+6. Set `SONAR_HOST_URL` as a **Repository Variable**: `http://<instance-public-ip>:9000`
 
 7. If you stop the server then remember to start the container again:
 
