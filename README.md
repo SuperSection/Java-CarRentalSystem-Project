@@ -103,9 +103,9 @@ sudo apt install -y docker.io git unzip curl wget
     - Provide a token name and Generate
     - Copy the Token and Put it as a Repository Secret (`SONAR_TOKEN`) for GitHub Actions
 
-6. Set `SONAR_HOST_URL` as a Repository Variable
+6. Set `SONAR_HOST_URL` as a **Repository Variable**: http://instance-public-ip:9000
 
-6. If you stop the server then remember to start the container again:
+7. If you stop the server then remember to start the container again:
 
     ```bash
     docker start sonar
@@ -244,6 +244,12 @@ sudo apt install -y docker.io git unzip curl wget
     ```
 
 3. Either clone [My GitLab Repo](https://gitlab.com/devops-section/DevOps-learning/-/tree/main/terraform/eks-terraform) to get the EKS setup code
+
+    ```bash
+    # On your EC2 Server
+    git clone https://gitlab.com/devops-section/DevOps-learning.git
+    cd DevOps-learning/terraform/eks-terraform
+    ```
 
 4. OR you can Copy the particular 3 files (`main.tf`, `variables.tf`, `output.tf`) from Local device to EC2 instance
 
